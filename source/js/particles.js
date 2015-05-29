@@ -51,12 +51,15 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 
     /* Create listeners for handling animation behavior when browser is manipulated */
     function config_listeners() {
-        window.addEventListener('scroll', detect_scroll);
+        /* Scroll listener is only necessary if you don't have the particles scrolling with the BG */
+        //window.addEventListener('scroll', detect_scroll);
         window.addEventListener('resize', detect_resize);
     }
 
     /* Stops animation when scrolling */
     function detect_scroll() {
+        /* If it's already stopped don't change logic */
+        if(!animatebg) return;
         if(document.body.scrollTop > height) {
             animatebg = false;
         } else {
@@ -159,18 +162,18 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 function preload_switch() {
     var img = new Image();
     var img2 = new Image();
-    img.src = "css/images/ani_on.png";
-    img2.src = "css/images/rota_on.png";
+    img.src = imgdir + "ani_on.png";
+    img2.src = imgrdir + "rota_on.png";
 }
 
 function toggle_animate() {
     var image = document.getElementById('animate');
     if(animatebg) {
         animatebg = false;
-        image.src = "css/images/ani_on.png"
+        image.src = imgdir + "ani_on.png"
     } else {
         animatebg = true;
-        image.src = "css/images/ani_off.png"
+        image.src = imgdir + "ani_off.png"
     }
 }
 
@@ -178,9 +181,9 @@ function toggle_rotate() {
     var image = document.getElementById('rotate');
     if(rotate) {
         rotate = false;
-        image.src = "css/images/rota_on.png"
+        image.src = imgdir + "rota_on.png"
     } else {
         rotate = true;
-        image.src = "css/images/rota_off.png"
+        image.src = imgdir + "rota_off.png"
     }
 }
