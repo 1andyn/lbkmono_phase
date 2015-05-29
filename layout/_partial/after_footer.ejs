@@ -1,5 +1,6 @@
 <script src="<%- config.root %>js/jquery.imagesloaded.min.js"></script>
 <script src="<%- config.root %>js/gallery.js"></script>
+<%- partial('particles') %>
 
 <% if (config.disqus_shortname){ %>
 <script type="text/javascript">
@@ -24,5 +25,3 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 })(jQuery);
 </script>
 <% } %>
-
-<%- partial('phasebeam') %>
