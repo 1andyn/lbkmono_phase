@@ -13,11 +13,7 @@
   <% } %>
   <a class="rss" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="RSS">RSS</a>
 </div>
-<p>
-  <% if (config.author){ %>
-  &copy; <%= new Date().getFullYear() %> <%= config.author %>
-  <% } else { %>
-  &copy; <%= new Date().getFullYear() %> <%= config.title %>
-  <% } %>
+<p id="author-info">
+  © <%= new Date().getFullYear() %> Andy Ng, powered by <a href="http://hexo.io">HEXO</a>
 </p>
 <div class="clearfix"></div>
