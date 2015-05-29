@@ -11,10 +11,10 @@ addthis:
   pinterest: true
 
 facebook:
-google_plus:
+google_plus: true
 twitter:
-github:
+github: true
 
 fancybox: true
-google_analytics:
-rss:
+google_analytics: true
+rss: true
