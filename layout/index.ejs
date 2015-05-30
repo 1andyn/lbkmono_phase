@@ -1,3 +1,7 @@
+<script>
+    /* Image Directory Reference for Posts*/
+    var imgdir = "/css/images/";
+</script>
 <% page.posts.each(function(item){ %>
   <%- partial('_partial/article', {item: item, index: true}) %>
 <% }); %>
