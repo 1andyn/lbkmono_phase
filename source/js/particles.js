@@ -4,9 +4,57 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 
     var particle_count;
 
+    /* Check Settings*/
+    config_cookies();
+
     /* Function Logic */
     initialize_body();
     config_listeners();
+
+
+    /* Checks if Cookies Exists, Creates them If Not */
+    function config_cookies() {
+        var cookie_rotate = $.cookie('rotate');
+        var cookie_animate = $.cookie('animate');
+
+        /* Check if Cookies exist, if so, update */
+        if(cookie_rotate === null || cookie_rotate === undefined) {
+            console.log("writing cookie");
+            $.cookie('rotate', '1', {path: '/'});
+        } else {
+            if(cookie_rotate == 1) {
+                rotate = true;
+            } else {
+                rotate = false;
+            }
+            console.log("rotate value is " + rotate);
+        }
+        if(cookie_animate === null || cookie_animate === undefined) {
+            console.log("writing cookie");
+            $.cookie('animate', '1', {path: '/'});
+        } else {
+            if(cookie_animate == 1) {
+                animatebg = true;
+            } else {
+                animatebg = false;
+            }
+            console.log("animate value is " + animatebg);
+        }
+
+        /* Configure Image Resource */
+        var image_ani = document.getElementById('animate');
+        if(!animatebg) {
+            image_ani.src = imgdir + "ani_on.png"
+        } else {
+            image_ani.src = imgdir + "ani_off.png"
+        }
+        var image_rota = document.getElementById('rotate');
+        if(!rotate) {
+            image_rota.src = imgdir + "rota_on.png"
+        } else {
+            image_rota.src = imgdir + "rota_off.png"
+        }
+    }
 
     /* Gets Window dimensions and sets the corresponding variables */
     function set_window_dimensions() {
@@ -171,10 +219,14 @@ function toggle_animate() {
     if(animatebg) {
         animatebg = false;
         image.src = imgdir + "ani_on.png"
+        $.cookie('animate', '0', {path: '/'});
     } else {
         animatebg = true;
         image.src = imgdir + "ani_off.png"
+        $.cookie('animate', '1', {path: '/'});
     }
+    console.log("animate value is " + animatebg);
+
 }
 
 function toggle_rotate() {
@@ -182,8 +234,12 @@ function toggle_rotate() {
     if(rotate) {
         rotate = false;
         image.src = imgdir + "rota_on.png"
+        $.cookie('rotate', '0', {path: '/'});
     } else {
         rotate = true;
         image.src = imgdir + "rota_off.png"
+        $.cookie('rotate', '1', {path: '/'});
     }
+    console.log("rotate value is " + rotate);
+
 }
