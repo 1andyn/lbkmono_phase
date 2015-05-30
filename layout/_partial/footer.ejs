@@ -1,26 +1,28 @@
-<!-- Intialize button Values -->
+<!-- Intialize Image Values -->
 <script>
     var animate_button = document.getElementById("animate");
     var rotate_button = document.getElementById("rotate");
+    var favicon = document.getElementById("favicon");
     animate_button.src = imgdir + "ani_off.png";
     rotate_button.src = imgdir + "rota_off.png";
+    favicon.href = imgdir + "fav.ico";
 </script>
 <div class="social alignright">
   <% if (theme.facebook){ %>
-    <a id="round" class="facebook" href="http://www.facebook.com/<%= theme.facebook %>" title="Facebook">Facebook</a>
+    <a class="round" id="facebook" href="http://www.facebook.com/<%= theme.facebook %>" title="Facebook">Facebook</a>
   <% } %>
   <% if (theme.google_plus){ %>
-    <a id="round" class="google" href="https://plus.google.com/u/0/111525126245371734293" title="Google+">Google+</a>
+    <a class="round" id="google" href="https://plus.google.com/u/0/111525126245371734293" title="Google+">Google+</a>
   <% } %>
   <% if (theme.twitter){ %>
-    <a id="round" class="twitter" href="http://twitter.com/<%= theme.twitter %>" title="Twitter">Twitter</a>
+    <a class="round" id="twitter" href="http://twitter.com/<%= theme.twitter %>" title="Twitter">Twitter</a>
   <% } %>
   <% if (theme.github){ %>
-    <a id="round" class="github" href="https://github.com/" title="GitHub">GitHub</a>
+    <a class="round" id="github" href="https://github.com/littlebakemono" title="GitHub">GitHub</a>
   <% } %>
-  <a id="round" class="rss" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="RSS">RSS</a>
+  <a class="round" id="rss" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="RSS">RSS</a>
 </div>
 <p id="author-info">
-  &#169; <%= new Date().getFullYear() %> Andy Ng, powered by <a id="round" href="http://hexo.io">Hexo</a>
+  &#169; <%= new Date().getFullYear() %> Andy Ng, powered by &nbsp;<a class="round" href="http://hexo.io">Hexo</a>
 </p>
 <div class="clearfix"></div>
