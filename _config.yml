@@ -1,6 +1,7 @@
 menu:
   Home: /
   Archives: /archives
+  GitHub: http://github.com/lbkmono
 
 addthis:
   enable: true
@@ -16,5 +17,5 @@ twitter:
 github: true
 
 fancybox: true
-google_analytics: true
-rss: true
+google_analytics: UA-63312724-1
+rss: /feed.xml
