@@ -19,7 +19,6 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 
         /* Check if Cookies exist, if so, update */
         if(cookie_rotate === null || cookie_rotate === undefined) {
-            console.log("writing cookie");
             $.cookie('rotate', '1', {path: '/'});
         } else {
             if(cookie_rotate == 1) {
@@ -27,10 +26,8 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
             } else {
                 rotate = false;
             }
-            console.log("rotate value is " + rotate);
         }
         if(cookie_animate === null || cookie_animate === undefined) {
-            console.log("writing cookie");
             $.cookie('animate', '1', {path: '/'});
         } else {
             if(cookie_animate == 1) {
@@ -38,7 +35,6 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
             } else {
                 animatebg = false;
             }
-            console.log("animate value is " + animatebg);
         }
 
         /* Configure Image Resource */
@@ -78,7 +74,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
     /* Create Particles and Start Animation */
     function start_animation() {
         particles = [];
-        particle_count = width*.3;
+        particle_count = width*.2;
         for(var x = 0; x < particle_count; x++) {
             var c = new Particle();
             particles.push(c);
@@ -99,7 +95,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 
     /* Create listeners for handling animation behavior when browser is manipulated */
     function config_listeners() {
-        /* Scroll listener is only necessary if you don't have the particles scrolling with the BG */
+        /* Scroll listener is only necessary if you don't want the particles scrolling with the BG indefinitely*/
         //window.addEventListener('scroll', detect_scroll);
         window.addEventListener('resize', detect_resize);
     }
@@ -153,7 +149,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
             initialize_particle();
         })();
 
-        /* Values for Position of Particle, Opacity, Size and Velocity that it Travels */
+        /* Values for Position of Particle, Opacity(Alpha) Size and Velocity that it Travels */
         function initialize_particle() {
             _this.pos.x = Math.random()*width;
             _this.pos.y = height+Math.random()*height_offset;
@@ -207,13 +203,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
 
 })();
 
-function preload_switch() {
-    var img = new Image();
-    var img2 = new Image();
-    img.src = imgdir + "ani_on.png";
-    img2.src = imgrdir + "rota_on.png";
-}
-
+/* Function call switches the Animation, if it is running it stops, if it is stopped it runs */
 function toggle_animate() {
     var image = document.getElementById('animate');
     if(animatebg) {
@@ -225,10 +215,9 @@ function toggle_animate() {
         image.src = imgdir + "ani_off.png"
         $.cookie('animate', '1', {path: '/'});
     }
-    console.log("animate value is " + animatebg);
-
 }
 
+/* Function call switches the Rotation, if it is rotating it stops, if it is stopped it rotates */
 function toggle_rotate() {
     var image = document.getElementById('rotate');
     if(rotate) {
@@ -240,6 +229,4 @@ function toggle_rotate() {
         image.src = imgdir + "rota_off.png"
         $.cookie('rotate', '1', {path: '/'});
     }
-    console.log("rotate value is " + rotate);
-
 }
