@@ -5,24 +5,37 @@ nav-height = 45 + 3*2px
   padding-top 30px
   padding-bottom 40px
   nav
+    height 90px
     font 1.5em font-title
     line-height nav-height
     width 724px
     ul
-      height 90px
       list-style none
       text-align center
-      li
-        height 90px
-        line-height 90px
-        margin 0 30px
-        display inline-block
-      a
-        color #fff
-        opacity 0.7
-        transition 0.3s
-        &:hover
-          opacity 1
+    li
+      padding 20px
+      text-align center
+      display inline-block
+      ul
+        position absolute
+        box-shadow: 0 0 16px rgba(0,0,0,.3)
+        display none
+        z-index 2
+        li
+          vertical-align middle
+          box-sizing border-box
+      &:hover
+        ul
+          display inline-block
+          background: linear-gradient(#4aaab2, #b5aa8f);
+
+    a
+      color #fff
+      opacity 0.7
+      transition 0.3s
+      &:hover
+        opacity 1
+        background
 
 #nav-container
   float right
