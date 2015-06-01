@@ -4,23 +4,23 @@
     <nav class="round-small">
         <ul id="nav-list">
             <% for (var i in theme.menu){ %>
-            <li><a id="<%= i %>" href="<%- theme.menu[i] %>"><%= i %></a></li>
+            <li><a id="nav-<%= i %>" href="<%- theme.menu[i] %>"><%= i %></a></li>
             <% } %>
-            <li><a id="projects" href="<%- config.root %>projects.html">Projects</a>
+            <li><a id="nav-projects" href="<%- config.root %>projects.html">Projects</a>
                 <ul class ="submenu">
-                    <li><a href="<%- config.root %>projects.html">Overview</a></li>
+                    <li><a id="nav-projects-menu" href="<%- config.root %>projects.html">Overview</a></li>
                     <li><a href="http://lbkmono.github.io/droid_sch/">Manoa Scheduler</a></li>
                     <li><a href="https://github.com/lbkmono/droid_planner">Planner Plus</a></li>
                     <li><a href="https://github.com/lbkmono/pmips_spartan3E">FPGA PMIPS</a></li>
                     <li><a href="http://lbkmono.github.io/sudoku_app/">Sudoku App</a></li>
-                    <li><a href="<%- config.root %>umouse.html">Micromouse</a></li>
+                    <li><a id="nav-umouse" href="<%- config.root %>umouse.html">Micromouse</a></li>
                 </ul>
             </li>
-            <li><a id="about" href="<%- config.root %>about.html">About</a>
+            <li><a id="nav-about" href="<%- config.root %>about.html">About</a>
                 <ul class ="submenu">
-                    <li><a href="<%- config.root %>about.html">Me</a></li>
-                    <li><a href="<%- config.root %>rig.html">My PC</a></li>
-                    <li><a href="<%- config.root %>film.html">Film</a></li>
+                    <li><a id="nav-about-menu" href="<%- config.root %>about.html">Me</a></li>
+                    <li><a id="nav-rig" href="<%- config.root %>rig.html">My PC</a></li>
+                    <li><a id="nav-film" href="<%- config.root %>film.html">Film</a></li>
                 </ul>
             </li>
         </ul>

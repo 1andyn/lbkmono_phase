@@ -1,6 +1,7 @@
 <script>
     /* Image Directory Reference for Posts*/
     var imgdir = "/css/images/";
+    document.getElementById('nav-Home').className = "round";
 </script>
 <% page.posts.each(function(item){ %>
   <%- partial('_partial/article', {item: item, index: true}) %>

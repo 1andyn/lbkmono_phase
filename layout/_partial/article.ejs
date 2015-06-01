@@ -1,3 +1,17 @@
+<% if (item.layout == 'page') { %>
+    <script>
+        var fileName = location.href.split("/").slice(-1).toString();
+        var id = "nav-" + fileName.slice(0,-5); // 5 Chars = ".html"
+        document.getElementById(id).className = "round";
+
+        /* Secondary Logic, check if Menu item Exists*/
+        var sec = document.getElementById(id + "-menu");
+        if(sec != null) {
+            sec.className = "round";
+        }
+    </script>
+<% } %>
+
 <article class="<% if (item.layout == 'page'){ %>page<% } else { %>post<% } %>">
   <% if (item.photos){ %>
     <%- partial('post/gallery') %>
