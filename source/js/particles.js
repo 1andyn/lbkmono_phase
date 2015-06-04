@@ -74,7 +74,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
     /* Create Particles and Start Animation */
     function start_animation() {
         particles = [];
-        particle_count = width*.2;
+        particle_count = width*.1;
         for(var x = 0; x < particle_count; x++) {
             var c = new Particle();
             particles.push(c);
@@ -136,7 +136,7 @@ var width, height, bgbody, canvas, context, particles, animatebg = true, rotate 
             min_scale = .005,
             rand_offset = .4,
             rand_offset_s = .4,
-            vel_offset = 4,
+            vel_offset = 2,
             height_offset = 100,
             tri_x_offset =  30,
             tri_y_offset = 30,
